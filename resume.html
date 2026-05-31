@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume — Dodiya Sujal | Web Developer</title>
+<meta name="description" content="Resume of Dodiya Sujal, a professional Web Developer from Bharuch, Gujarat. BCA Graduate & MCA Student.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cyan: #0066ff;
+    --cyan-dim: #0052cc;
+    --text: #0a0f2e;
+    --muted: #4e5774;
+    --light-bg: #f8fafc;
+    --border: #e2e8f0;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--light-bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  /* RESUME CONTAINER */
+  .resume-paper {
+    background: var(--white);
+    width: 100%;
+    max-width: 850px;
+    box-shadow: 0 20px 40px rgba(0, 102, 255, 0.05), 0 1px 3px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 3.5rem;
+    position: relative;
+    border: 1px solid var(--border);
+  }
+
+  /* ACTIONS BAR */
+  .actions-bar {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    display: flex;
+    gap: 10px;
+  }
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .action-btn:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.08);
+  }
+  .action-btn.primary {
+    background: var(--cyan);
+    color: var(--white);
+    border-color: var(--cyan);
+  }
+  .action-btn.primary:hover {
+    background: var(--cyan-dim);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header-left h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    color: var(--text);
+    letter-spacing: -0.03em;
+  }
+  .header-left h1 span {
+    color: var(--cyan);
+  }
+  .header-left .role {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .header-right p {
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+  .header-right a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .header-right a:hover {
+    color: var(--cyan);
+  }
+
+  /* LAYOUT */
+  .resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 3.5rem;
+  }
+
+  /* COLUMN COMMON */
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .resume-section {
+    margin-bottom: 2.5rem;
+  }
+
+  /* LEFT COLUMN (SIDEBAR) */
+  .profile-summary {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .skill-group {
+    margin-bottom: 1.25rem;
+  }
+  .skill-group h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .skill-badge {
+    background: var(--light-bg);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .contact-sidebar-list {
+    list-style: none;
+  }
+  .contact-sidebar-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .contact-sidebar-list a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-sidebar-list a:hover {
+    color: var(--cyan);
+  }
+  .sidebar-icon {
+    font-size: 16px;
+    color: var(--cyan);
+    width: 20px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sidebar-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--cyan);
+  }
+
+  /* RIGHT COLUMN (MAIN) */
+  .timeline-item {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+  }
+  .timeline-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .timeline-org {
+    font-size: 13px;
+    color: var(--cyan);
+    font-weight: 600;
+  }
+  .timeline-date {
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--light-bg);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .timeline-desc {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .timeline-list {
+    margin-top: 8px;
+    padding-left: 16px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .timeline-list li {
+    margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .resume-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* PRINT STYLE STYLING */
+  @media print {
+    body {
+      background: none;
+      padding: 0;
+      color: #000;
+    }
+    .resume-paper {
+      box-shadow: none;
+      border: none;
+      padding: 0;
+      max-width: 100%;
+    }
+    .actions-bar {
+      display: none;
+    }
+    .skill-badge {
+      border: 1px solid #94a3b8;
+      background: none;
+    }
+    .timeline-date {
+      border: 1px solid #94a3b8;
+      background: none;
+    }
+  }
+
+  /* RESPONSIVE DESIGN */
+  @media (max-width: 768px) {
+    body {
+      padding: 5rem 1rem 2rem;
+    }
+    .resume-paper {
+      padding: 2rem 1.5rem;
+    }
+    .actions-bar {
+      top: -60px;
+      left: 10px;
+      right: 10px;
+      justify-content: center;
+    }
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+    .header-right {
+      text-align: left;
+      width: 100%;
+      border-top: 1px dashed var(--border);
+      padding-top: 1rem;
+    }
+    .header-right p {
+      justify-content: flex-start;
+    }
+    .resume-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="resume-paper">
+  <!-- Action buttons for user -->
+  <div class="actions-bar">
+    <a href="index2.html" class="action-btn">← Back to Portfolio</a>
+    <button class="action-btn primary" onclick="window.print()">Print / Save PDF 🖨️</button>
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <div class="header-left">
+      <h1>Dodiya <span>Sujal</span></h1>
+      <div class="role">Web Developer &amp; Digital Craftsman</div>
+    </div>
+    <div class="header-right">
+      <p><span class="sidebar-icon">📍</span> Bharuch, Gujarat, India</p>
+      <p><span class="sidebar-icon">✉️</span> <a href="mailto:sujalsinh1@gmail.com">sujalsinh1@gmail.com</a></p>
+      <p><span class="sidebar-icon">📞</span> <a href="tel:+919316773830">+91 9316773830</a></p>
+    </div>
+  </header>
+
+  <!-- Main Grid Content -->
+  <div class="resume-grid">
+    
+    <!-- Left Column: Sidebar -->
+    <div class="resume-sidebar">
+      
+      <!-- Profile section -->
+      <div class="resume-section">
+        <h3 class="section-title">Profile</h3>
+        <p class="profile-summary">
+          Motivated and detail-oriented Web Developer from Bharuch, Gujarat. Passionate about crafting high-performance, responsive, and visually compelling web applications. Experienced in full-stack components (PHP, MEAN Stack) and modern styling.
+        </p>
+      </div>
+
+      <!-- Skills section -->
+      <div class="resume-section">
+        <h3 class="section-title">Technical Skills</h3>
+        
+        <div class="skill-group">
+          <h4>Frontend Development</h4>
+          <div class="skill-tags">
+            <span class="skill-badge">HTML5</span>
+            <span class="skill-badge">CSS3</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">TypeScript</span>
+            <span class="skill-badge">Bootstrap</span>
+            <span class="skill-badge">Angular</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4>Backend &amp; Databases</h4>
+          <div class="skill-tags">
+            <span class="skill-badge">PHP</span>
+            <span class="skill-badge">Node.js</span>
+            <span class="skill-badge">Express.js</span>
+            <span class="skill-badge">MySQL</span>
+            <span class="skill-badge">MongoDB</span>
+            <span class="skill-badge">Firebase</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4>Tools &amp; Methods</h4>
+          <div class="skill-tags">
+            <span class="skill-badge">Git &amp; GitHub</span>
+            <span class="skill-badge">VS Code</span>
+            <span class="skill-badge">REST APIs</span>
+            <span class="skill-badge">C / C++</span>
+            <span class="skill-badge">Responsive Design</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links section -->
+      <div class="resume-section">
+        <h3 class="section-title">Links &amp; Socials</h3>
+        <ul class="contact-sidebar-list">
+          <li>
+            <span class="sidebar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+            </span>
+            <a href="https://github.com/Dodiyasujal/dodiyasujal" target="_blank">github.com/Dodiyasujal</a>
+          </li>
+          <li>
+            <span class="sidebar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              </svg>
+            </span>
+            <a href="https://www.linkedin.com/in/sujal-sinh-9a2a36370" target="_blank">linkedin.com/in/sujal-sinh</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Main Info -->
+    <div class="resume-main">
+      
+      <!-- Education section -->
+      <div class="resume-section">
+        <h3 class="section-title">Education</h3>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-org">Manipal University</span>
+              <div class="timeline-title">Master of Computer Applications (MCA)</div>
+            </div>
+            <span class="timeline-date">2026 - Present</span>
+          </div>
+          <p class="timeline-desc">Currently pursuing Online MCA, 1st Semester. Focusing on advanced computational frameworks and full-stack architecture.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-org">M.K. Institute of Computer Studies, Bharuch</span>
+              <div class="timeline-title">Bachelor of Computer Applications (BCA)</div>
+              <div class="timeline-desc" style="font-size: 11px; margin-top: 2px;">Veer Narmad South Gujarat University</div>
+            </div>
+            <span class="timeline-date">2023 - 2026</span>
+          </div>
+          <p class="timeline-desc">Graduated with a cumulative CGPA of <strong>6.24</strong>. Gained rigorous foundational knowledge in web technologies, databases, and structural coding.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-org">Prarthana Vidyalaya, Bharuch</span>
+              <div class="timeline-title">HSC — Commerce</div>
+            </div>
+            <span class="timeline-date">Completed 2023</span>
+          </div>
+          <p class="timeline-desc">Completed HSC Commerce under GSEB Board with a score of <strong>57.83%</strong>.</p>
+        </div>
+      </div>
+
+      <!-- Experience section -->
+      <div class="resume-section">
+        <h3 class="section-title">Internship &amp; Training</h3>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-org">Jaganauts IT Solutions &amp; Self-learning</span>
+              <div class="timeline-title">Web Development Trainee</div>
+            </div>
+            <span class="timeline-date">Training Duration</span>
+          </div>
+          <p class="timeline-desc">Intensive practical training focused on full-cycle web engineering and clean coding paradigms.</p>
+          <ul class="timeline-list">
+            <li>Learned fundamental frontend technologies (HTML5, CSS3, JS) and backend mechanics.</li>
+            <li>Built modular projects using PHP &amp; MySQL, focusing on relational database schemas.</li>
+            <li>Integrated REST APIs and secured database query flows.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Projects section -->
+      <div class="resume-section">
+        <h3 class="section-title">Key Projects</h3>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-org">ElectroStore (PHP/MySQL)</span>
+              <div class="timeline-title">Full-Stack eCommerce Platform</div>
+            </div>
+          </div>
+          <p class="timeline-desc">A dynamic electronic appliances online store. Implemented complete shopping flows, cart, checkout, order tracking, admin dashboard with analytics reports, PDF invoice printing, and user authentication.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-org">ElectroStore (MEAN Stack)</span>
+              <div class="timeline-title">Modern Full-Stack JavaScript Rebuild</div>
+            </div>
+          </div>
+          <p class="timeline-desc">Completely re-engineered the ElectroStore concept using Angular for a responsive, interactive UI, Node.js + Express.js for the API layer, and MongoDB for flexible data modeling.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-org">Personal Portfolio Page</span>
+              <div class="timeline-title">Interactive Showcase Website</div>
+            </div>
+          </div>
+          <p class="timeline-desc">A premium portfolio built using pure HTML, CSS, and interactive GSAP animations. Employs advanced smooth scroll reveals, magnetic hover effects, and strict responsiveness.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
